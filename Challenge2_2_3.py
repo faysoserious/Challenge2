@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 14 01:06:02 2017
 
-@author: fxie_
-"""
 
 import itertools
 import sqlite3
