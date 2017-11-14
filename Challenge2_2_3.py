@@ -7,19 +7,6 @@ import re
 from operator import itemgetter
 import time
 
-
-
-
-# Create your engine.
-#engine = create_engine('sqlite:///reddit.db')
-#with engine.connect() as conn, conn.begin():
-#    table_comments = pd.read_sql_query("SELECT * FROM comments WHERE subreddit_id = '%s'"%subid, engine)
-
-#    subreddit_ids = pd.read_sql_query("SELECT subreddits.id FROM subreddits", engine)
-#    for subid in subreddit_ids['id']:
-#    	  df = pd.read_sql_query("SELECT author_id FROM comments WHERE subreddit_id = '%s'"%subid, engine)
-    
-#    i=subreddit_ids[1][0]
 def find_most_common(map_key):
     temp=dict()
     for each_key in sub_author_dict:
