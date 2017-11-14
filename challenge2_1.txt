@@ -1,0 +1,20 @@
+subreddit:'AskReddit'
+ total number of distinct words:556822
+subreddit:'funny'
+ total number of distinct words:221475
+subreddit:'pics'
+ total number of distinct words:206727
+subreddit:'worldnews'
+ total number of distinct words:193827
+subreddit:'todayilearned'
+ total number of distinct words:189657
+subreddit:'subredditreports'
+ total number of distinct words:188482
+subreddit:'videos'
+ total number of distinct words:187412
+subreddit:'leagueoflegends'
+ total number of distinct words:162548
+subreddit:'pcmasterrace'
+ total number of distinct words:153091
+subreddit:'AdviceAnimals'
+ total number of distinct words:138590
