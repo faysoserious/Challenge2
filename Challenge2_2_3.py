@@ -73,8 +73,8 @@ with sqlite3.connect('reddit.db') as conn:
 # Use itertools.permutations() OR itertools.combination() to generate the compare list
 # Apply all these list with map() to get the number of same authors
 
-    for mostcommon in map(find_most_common,itertools.permutations(id_table_subreddits,2)):
-#    for mostcommon in map(find_most_common,itertools.combinations(id_table_subreddits,2)):
+#    for mostcommon in map(find_most_common,itertools.permutations(id_table_subreddits,2)):
+    for mostcommon in map(find_most_common,itertools.combinations(id_table_subreddits,2)):
        
         print(mostcommon)
         size_dict.update(mostcommon)
