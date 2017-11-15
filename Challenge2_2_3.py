@@ -7,17 +7,25 @@ import re
 from operator import itemgetter
 import time
 
+# Create your engine.
+#engine = create_engine('sqlite:///reddit.db')
+#with engine.connect() as conn, conn.begin():
+#    table_comments = pd.read_sql_query("SELECT * FROM comments WHERE subreddit_id = '%s'"%subid, engine)
+
+#    subreddit_ids = pd.read_sql_query("SELECT subreddits.id FROM subreddits", engine)
+#    for subid in subreddit_ids['id']:
+#    	  df = pd.read_sql_query("SELECT author_id FROM comments WHERE subreddit_id = '%s'"%subid, engine)
+
+#Define the function to compare the numbers of common authors of a pair
 def find_most_common(map_key):
-    temp=dict()
-    for each_key in sub_author_dict:
-        sample=sub_author_dict[map_key]
-        if not((each_key==map_key)or(each_key =='0')):
-            for number in [len(sample.union(sub_author_dict[each_key]))]:
-                temp.update({each_key:number})
-    temp = sorted(temp.items(),key = itemgetter(1), reverse = True)[0]
-    new_key = map_key + " + " + temp[0]
-                
-    return {new_key:temp[1]}
+    each_key=map_key
+    temp1= each_key[0]
+    temp2= each_key[1]
+    aurthor_set1=sub_author_dict[temp1]
+    author_common=len(aurthor_set1.union(sub_author_dict[temp2]))
+    new_key= temp1+ " + " +temp2
+    return {new_key:author_common}
+
 
     
 with sqlite3.connect('reddit.db') as conn:
@@ -56,7 +64,19 @@ with sqlite3.connect('reddit.db') as conn:
         
         elapsed =  (time.clock()-start)
         print("Time used: ",elapsed)
-    for mostcommon in map(find_most_common,id_table_subreddits):
+        
+# As we have already get the dictionary with key=subreddit_id and value = set(list of author_id)
+# To find the pairs of subreddit with most common authors 
+# we need to compare each key=subreddit with all the rest subreddits
+# eg: suppose [key = a, key = b, key=c] need to compare pairs (a,b) (a,c) (b,a)(b,c)(c,a)(c,b)
+# also same result but with smaller number of pairs to only compare pairs(a,b)(a,c)(b,c)
+# Use itertools.permutations() OR itertools.combination() to generate the compare list
+# Apply all these list with map() to get the number of same authors
+
+    for mostcommon in map(find_most_common,itertools.permutations(id_table_subreddits,2)):
+#    for mostcommon in map(find_most_common,itertools.combinations(id_table_subreddits,2)):
+       
+        print(mostcommon)
         size_dict.update(mostcommon)
         size_sorted = sorted(size_dict.items(),key = itemgetter(1), reverse = True)[:10]
         size_dict = dict(size_sorted)   
@@ -64,7 +84,8 @@ with sqlite3.connect('reddit.db') as conn:
         
         
     result= sorted(size_dict.items(),key = itemgetter(1), reverse = True)[:10]
-   
+    elapsed =  (time.clock()-start)
+    print("Time used: ",elapsed)
            
     #    print('find the first 10')
     with open('challenge2_2.txt', 'wt') as f:
