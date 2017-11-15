@@ -90,5 +90,5 @@ with sqlite3.connect('reddit.db') as conn:
     #    print('find the first 10')
     with open('challenge2_2.txt', 'wt') as f:
         for key,value in result:
-            print("subreddit:'{}'\n total number of distinct words:{}".format(key,size_dict[key]),file=f)
+            print("subreddit pairs:'{}'\n total number of common authors:{}".format(key,size_dict[key]),file=f)
             print('\n')
