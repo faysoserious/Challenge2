@@ -1,1 +1,20 @@
-t5_2qh1i
+subreddit pairs:'t5_2qh1i + t5_2qh33'
+ total number of common authors:722224
+subreddit pairs:'t5_2qh33 + t5_2qh1i'
+ total number of common authors:722224
+subreddit pairs:'t5_2qh1i + t5_2qh0u'
+ total number of common authors:708083
+subreddit pairs:'t5_2qh0u + t5_2qh1i'
+ total number of common authors:708083
+subreddit pairs:'t5_2qh1i + t5_2rfxx'
+ total number of common authors:690468
+subreddit pairs:'t5_2rfxx + t5_2qh1i'
+ total number of common authors:690468
+subreddit pairs:'t5_2qh1i + t5_2qh1e'
+ total number of common authors:675026
+subreddit pairs:'t5_2qh1e + t5_2qh1i'
+ total number of common authors:675026
+subreddit pairs:'t5_2qh1i + t5_2qqjc'
+ total number of common authors:664576
+subreddit pairs:'t5_2qqjc + t5_2qh1i'
+ total number of common authors:664576
